@@ -18,42 +18,36 @@ public class CastleDBSeeder implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Castle[] castles = new Castle[] {
-				new Castle("Castle", 
-						"villageHall",
-						"townHall", 
-						"cityHall", 
-						"capitol", 
-						"fort", 
-						"citadel", 
-						"castle", 
-						"tavern",
-						"marketplace", 
-						"resourceSilo", 
-						"townblacksmith", 
-						"mageGuild", 
-						4, 
-						"creatureGenerator1", 
-						"creatureGenerator1plus", 
-						"creatureGenerator2", 
-						"creatureGenerator2plus", 
-						"creatureGenerator3", 
-						"creatureGenerator3plus", 
-						"creatureGenerator4", 
-						"creatureGenerator4plus", 
-						"creatureGenerator5", 
-						"creatureGenerator5plus", 
-						"creatureGenerator6", 
-						"creatureGenerator6plus", 
-						"creatureGenerator7", 
-						"creatureGenerator7plus", 
-						"Brotherhood of the Sword - Increases morale by +2 when defending against siege. This is in addition to tavern's +1 resulting in a total morale bonus of +3"),
-				
+		MageGuild lvl1 = new MageGuild("Mage Guild", 1);
+		MageGuild lvl2 = new MageGuild("Mage Guild", 2);
+		MageGuild lvl3 = new MageGuild("Mage Guild", 3);
+		MageGuild lvl4 = new MageGuild("Mage Guild", 4);
+		MageGuild lvl5 = new MageGuild("Mage Guild", 5);
+		
+		/*Castle[] castles = {
+				new Castle(
+						info, 
+						heroClasses, 
+						creatureDwellings,
+						specificBuildings, 
+						villageHall, 
+						townHall, 
+						cityHall, 
+						capitol, 
+						fort, 
+						citadel,
+						castle,
+						tavern, 
+						marketplace,
+						resourceSilo, 
+						blacksmith, 
+						mageGuilds
+						)
 		};
 		
 		List<Castle> allCastles = Arrays.asList(castles);
 		castleDao.deleteAll();
-		castleDao.saveAll(allCastles);
+		castleDao.saveAll(allCastles);*/
 		
 	}
 

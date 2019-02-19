@@ -1,16 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/homm3
-    username: postgres
-    password: Start-123
-    driverClassName: org.postgresql.Driver
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        jdbc.lob.non_contextual_creation: true
-        temp.use_jdbc_metadata_defaults: false
+  data:    mongodb:      uri: //localhost:27017/Homm3
 server:
   port: 8090

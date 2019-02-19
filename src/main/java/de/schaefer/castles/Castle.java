@@ -2,154 +2,76 @@ package de.schaefer.castles;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity
-@Table(name = "castle")
+import de.schaefer.castles.dwellings.Dwellings;
+
+@Document
 public class Castle {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "CastleId", columnDefinition = "int(11)")
-	private int id;
-
-	@NotNull
-	@Column(name = "CastleName", columnDefinition = "Varchar(255)")
-	private String name;
-
-	@NotNull
-	@Column(name = "VillageHall", columnDefinition = "text")
+	@Field
+	private String id;
+	
+	@Field(value = "Information")
+	private String info;
+	
+	@Field(value = "Hero Classes")
+	private List<String> heroClasses;
+	
+	@Field(value = "Creature Dwellings")
+	private List<Dwellings> creatureDwellings;
+	
+	@Field(value = "Specific Buildings")
+	private List<String> specificBuildings;
+	
+	@Field(value = "Village Hall")
 	private String villageHall;
-
-	@NotNull
-	@Column(name = "TownHall", columnDefinition = "text")
+	
+	@Field(value = "Town Hall")
 	private String townHall;
-
-	@NotNull
-	@Column(name = "CityHall", columnDefinition = "text")
+	
+	@Field(value = "City Hall")
 	private String cityHall;
-
-	@NotNull
-	@Column(name = "Capitol", columnDefinition = "text")
+	
+	@Field(value = "Capitol")
 	private String capitol;
-
-	@NotNull
-	@Column(name = "Fort", columnDefinition = "text")
+	
+	@Field(value = "Fort")
 	private String fort;
-
-	@NotNull
-	@Column(name = "Citadel", columnDefinition = "text")
+	
+	@Field(value = "Citadel")
 	private String citadel;
-
-	@NotNull
-	@Column(name = "Castle", columnDefinition = "text")
+	
+	@Field(value = "Castle")
 	private String castle;
-
-	@NotNull
-	@Column(name = "Tavern", columnDefinition = "text")
+	
+	@Field(value = "Tavern")
 	private String tavern;
-
-	@NotNull
-	@Column(name = "Marketplace", columnDefinition = "text")
+	
+	@Field(value = "Marketplace")
 	private String marketplace;
-
-	@NotNull
-	@Column(name = "ResourceSilo", columnDefinition = "text")
+	
+	@Field(value = "Resource Silo")
 	private String resourceSilo;
-
-	@NotNull
-	@Column(name = "Blacksmith", columnDefinition = "text")
+	
+	@Field(value = "Blacksmith")
 	private String blacksmith;
+	
+	@Field(value = "Mage Guilds")
+	private List<MageGuild> mageGuilds;
 
-	@NotNull
-	@Column(name = "MageGuild", columnDefinition = "text")
-	private String mageGuild;
-
-	@NotNull
-	@Column(name = "MageGuildMaxLevel", columnDefinition = "int(11)")
-	private int mageGuildMaxLevel;
-
-	@NotNull
-	@Column(name = "CreatureGenerator1", columnDefinition = "text")
-	private String creatureGenerator1;
-
-	@NotNull
-	@Column(name = "CreatureGenerator1plus", columnDefinition = "text")
-	private String creatureGenerator1plus;
-
-	@NotNull
-	@Column(name = "CreatureGenerator2", columnDefinition = "text")
-	private String creatureGenerator2;
-
-	@NotNull
-	@Column(name = "CreatureGenerator2plus", columnDefinition = "text")
-	private String creatureGenerator2plus;
-
-	@NotNull
-	@Column(name = "CreatureGenerator3", columnDefinition = "text")
-	private String creatureGenerator3;
-
-	@NotNull
-	@Column(name = "CreatureGenerator3plus", columnDefinition = "text")
-	private String creatureGenerator3plus;
-
-	@NotNull
-	@Column(name = "CreatureGenerator4", columnDefinition = "text")
-	private String creatureGenerator4;
-
-	@NotNull
-	@Column(name = "CreatureGenerator4plus", columnDefinition = "text")
-	private String creatureGenerator4plus;
-
-	@NotNull
-	@Column(name = "CreatureGenerator5", columnDefinition = "text")
-	private String creatureGenerator5;
-
-	@NotNull
-	@Column(name = "CreatureGenerator5plus", columnDefinition = "text")
-	private String creatureGenerator5plus;
-
-	@NotNull
-	@Column(name = "CreatureGenerator6", columnDefinition = "text")
-	private String creatureGenerator6;
-
-	@NotNull
-	@Column(name = "CreatureGenerator6plus", columnDefinition = "text")
-	private String creatureGenerator6plus;
-
-	@NotNull
-	@Column(name = "CreatureGenerator7", columnDefinition = "text")
-	private String creatureGenerator7;
-
-	@NotNull
-	@Column(name = "CreatureGenerator7plus", columnDefinition = "text")
-	private String creatureGenerator7plus;
-
-	@Column(name = "SpecialBuildings", columnDefinition = "text")
-	private String specialBuildings;
-
-	public Castle() {
-	}
-
-	public Castle(@NotNull String name, @NotNull String villageHall, @NotNull String townHall, @NotNull String cityHall,
-			@NotNull String capitol, @NotNull String fort, @NotNull String citadel, @NotNull String castle,
-			@NotNull String tavern, @NotNull String marketplace, @NotNull String resourceSilo,
-			@NotNull String blacksmith, @NotNull String mageGuild, @NotNull int mageGuildMaxLevel,
-			@NotNull String creatureGenerator1, @NotNull String creatureGenerator1plus,
-			@NotNull String creatureGenerator2, @NotNull String creatureGenerator2plus,
-			@NotNull String creatureGenerator3, @NotNull String creatureGenerator3plus,
-			@NotNull String creatureGenerator4, @NotNull String creatureGenerator4plus,
-			@NotNull String creatureGenerator5, @NotNull String creatureGenerator5plus,
-			@NotNull String creatureGenerator6, @NotNull String creatureGenerator6plus,
-			@NotNull String creatureGenerator7, @NotNull String creatureGenerator7plus, String specialBuildings) {
+	public Castle(String info, List<String> heroClasses, List<Dwellings> creatureDwellings,
+			List<String> specificBuildings, String villageHall, String townHall, String cityHall, String capitol,
+			String fort, String citadel, String castle, String tavern, String marketplace, String resourceSilo,
+			String blacksmith, List<MageGuild> mageGuilds) {
 		super();
-		this.name = name;
+		this.info = info;
+		this.heroClasses = heroClasses;
+		this.creatureDwellings = creatureDwellings;
+		this.specificBuildings = specificBuildings;
 		this.villageHall = villageHall;
 		this.townHall = townHall;
 		this.cityHall = cityHall;
@@ -161,39 +83,47 @@ public class Castle {
 		this.marketplace = marketplace;
 		this.resourceSilo = resourceSilo;
 		this.blacksmith = blacksmith;
-		this.mageGuild = mageGuild;
-		this.mageGuildMaxLevel = mageGuildMaxLevel;
-		this.creatureGenerator1 = creatureGenerator1;
-		this.creatureGenerator1plus = creatureGenerator1plus;
-		this.creatureGenerator2 = creatureGenerator2;
-		this.creatureGenerator2plus = creatureGenerator2plus;
-		this.creatureGenerator3 = creatureGenerator3;
-		this.creatureGenerator3plus = creatureGenerator3plus;
-		this.creatureGenerator4 = creatureGenerator4;
-		this.creatureGenerator4plus = creatureGenerator4plus;
-		this.creatureGenerator5 = creatureGenerator5;
-		this.creatureGenerator5plus = creatureGenerator5plus;
-		this.creatureGenerator6 = creatureGenerator6;
-		this.creatureGenerator6plus = creatureGenerator6plus;
-		this.creatureGenerator7 = creatureGenerator7;
-		this.creatureGenerator7plus = creatureGenerator7plus;
-		this.specialBuildings = specialBuildings;
+		this.mageGuilds = mageGuilds;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getInfo() {
+		return info;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public List<String> getHeroClasses() {
+		return heroClasses;
+	}
+
+	public void setHeroClasses(List<String> heroClasses) {
+		this.heroClasses = heroClasses;
+	}
+
+	public List<Dwellings> getCreatureDwellings() {
+		return creatureDwellings;
+	}
+
+	public void setCreatureDwellings(List<Dwellings> creatureDwellings) {
+		this.creatureDwellings = creatureDwellings;
+	}
+
+	public List<String> getSpecificBuildings() {
+		return specificBuildings;
+	}
+
+	public void setSpecificBuildings(List<String> specificBuildings) {
+		this.specificBuildings = specificBuildings;
 	}
 
 	public String getVillageHall() {
@@ -276,148 +206,20 @@ public class Castle {
 		this.resourceSilo = resourceSilo;
 	}
 
-	public String getTownblacksmith() {
+	public String getBlacksmith() {
 		return blacksmith;
 	}
 
-	public void setTownblacksmith(String townblacksmith) {
-		this.blacksmith = townblacksmith;
+	public void setBlacksmith(String blacksmith) {
+		this.blacksmith = blacksmith;
 	}
 
-	public String getMageGuild() {
-		return mageGuild;
+	public List<MageGuild> getMageGuilds() {
+		return mageGuilds;
 	}
 
-	public void setMageGuild(String mageGuild) {
-		this.mageGuild = mageGuild;
+	public void setMageGuilds(List<MageGuild> mageGuilds) {
+		this.mageGuilds = mageGuilds;
 	}
-
-	public int getMageGuildMaxLevel() {
-		return mageGuildMaxLevel;
-	}
-
-	public void setMageGuildMaxLevel(int mageGuildMaxLevel) {
-		this.mageGuildMaxLevel = mageGuildMaxLevel;
-	}
-
-	public String getCreatureGenerator1() {
-		return creatureGenerator1;
-	}
-
-	public void setCreatureGenerator1(String creatureGenerator1) {
-		this.creatureGenerator1 = creatureGenerator1;
-	}
-
-	public String getCreatureGenerator1plus() {
-		return creatureGenerator1plus;
-	}
-
-	public void setCreatureGenerator1plus(String creatureGenerator1plus) {
-		this.creatureGenerator1plus = creatureGenerator1plus;
-	}
-
-	public String getCreatureGenerator2() {
-		return creatureGenerator2;
-	}
-
-	public void setCreatureGenerator2(String creatureGenerator2) {
-		this.creatureGenerator2 = creatureGenerator2;
-	}
-
-	public String getCreatureGenerator2plus() {
-		return creatureGenerator2plus;
-	}
-
-	public void setCreatureGenerator2plus(String creatureGenerator2plus) {
-		this.creatureGenerator2plus = creatureGenerator2plus;
-	}
-
-	public String getCreatureGenerator3() {
-		return creatureGenerator3;
-	}
-
-	public void setCreatureGenerator3(String creatureGenerator3) {
-		this.creatureGenerator3 = creatureGenerator3;
-	}
-
-	public String getCreatureGenerator3plus() {
-		return creatureGenerator3plus;
-	}
-
-	public void setCreatureGenerator3plus(String creatureGenerator3plus) {
-		this.creatureGenerator3plus = creatureGenerator3plus;
-	}
-
-	public String getCreatureGenerator4() {
-		return creatureGenerator4;
-	}
-
-	public void setCreatureGenerator4(String creatureGenerator4) {
-		this.creatureGenerator4 = creatureGenerator4;
-	}
-
-	public String getCreatureGenerator4plus() {
-		return creatureGenerator4plus;
-	}
-
-	public void setCreatureGenerator4plus(String creatureGenerator4plus) {
-		this.creatureGenerator4plus = creatureGenerator4plus;
-	}
-
-	public String getCreatureGenerator5() {
-		return creatureGenerator5;
-	}
-
-	public void setCreatureGenerator5(String creatureGenerator5) {
-		this.creatureGenerator5 = creatureGenerator5;
-	}
-
-	public String getCreatureGenerator5plus() {
-		return creatureGenerator5plus;
-	}
-
-	public void setCreatureGenerator5plus(String creatureGenerator5plus) {
-		this.creatureGenerator5plus = creatureGenerator5plus;
-	}
-
-	public String getCreatureGenerator6() {
-		return creatureGenerator6;
-	}
-
-	public void setCreatureGenerator6(String creatureGenerator6) {
-		this.creatureGenerator6 = creatureGenerator6;
-	}
-
-	public String getCreatureGenerator6plus() {
-		return creatureGenerator6plus;
-	}
-
-	public void setCreatureGenerator6plus(String creatureGenerator6plus) {
-		this.creatureGenerator6plus = creatureGenerator6plus;
-	}
-
-	public String getCreatureGenerator7() {
-		return creatureGenerator7;
-	}
-
-	public void setCreatureGenerator7(String creatureGenerator7) {
-		this.creatureGenerator7 = creatureGenerator7;
-	}
-
-	public String getCreatureGenerator7plus() {
-		return creatureGenerator7plus;
-	}
-
-	public void setCreatureGenerator7plus(String creatureGenerator7plus) {
-		this.creatureGenerator7plus = creatureGenerator7plus;
-	}
-
-	public String getSpecialBuildings() {
-		return specialBuildings;
-	}
-
-	public void setSpecialBuildings(String specialBuildings) {
-		this.specialBuildings = specialBuildings;
-	}
-
+	
 }
