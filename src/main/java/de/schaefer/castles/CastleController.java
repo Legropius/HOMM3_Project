@@ -17,7 +17,7 @@ public class CastleController {
 	static final String PATHNAME_APPLICATION = "/homm3";
 	static final String PATHNAME_CASTLE = "/castle";
 	
-	private static final String ATTRIBUTE_CASTLENAME = "name";
+	private static final String ATTRIBUTE_NAME = "name";
 	
 	private final CastleService castleService;
 	
@@ -27,9 +27,10 @@ public class CastleController {
 	}
 	
 	@GetMapping(value = PATHNAME_CASTLE)
-	public List<Castle> returnCastle(@RequestParam(value = ATTRIBUTE_CASTLENAME, defaultValue = "") String name){
+	public List<Castle> returnCastle(
+			@RequestParam(value = ATTRIBUTE_NAME, required = false, defaultValue = "") String name){
 		
-		return null;
+		return castleService.findBy(name.replaceAll("_", " "));
 	}
 
 }
