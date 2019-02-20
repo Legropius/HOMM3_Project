@@ -19,9 +19,6 @@ public class CreatureService {
 
 	public List<Creature> findBy(String name, String town, String level) {
 		List<Creature> creature = creatureDao.findAll();
-		System.out.println(name);
-		System.out.println(town);
-		System.out.println(level);
 		
 		return creature
 				.stream()

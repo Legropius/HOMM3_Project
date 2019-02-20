@@ -6,8 +6,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import de.schaefer.castles.dwellings.Dwellings;
-
 @Document
 public class Castle {
 	
@@ -25,7 +23,7 @@ public class Castle {
 	private List<String> heroClasses;
 	
 	@Field(value = "Creature Dwellings")
-	private List<Dwellings> creatureDwellings;
+	private List<String> creatureDwellings;
 	
 	@Field(value = "Specific Buildings")
 	private List<String> specificBuildings;
@@ -66,7 +64,7 @@ public class Castle {
 	@Field(value = "Mage Guilds")
 	private List<MageGuild> mageGuilds;
 
-	public Castle(String name, String info, List<String> heroClasses, List<Dwellings> creatureDwellings,
+	public Castle(String name, String info, List<String> heroClasses, List<String> creatureDwellings,
 			List<String> specificBuildings, String villageHall, String townHall, String cityHall, String capitol,
 			String fort, String citadel, String castle, String tavern, String marketplace, String resourceSilo,
 			String blacksmith, List<MageGuild> mageGuilds) {
@@ -121,11 +119,11 @@ public class Castle {
 		this.heroClasses = heroClasses;
 	}
 
-	public List<Dwellings> getCreatureDwellings() {
+	public List<String> getCreatureDwellings() {
 		return creatureDwellings;
 	}
 
-	public void setCreatureDwellings(List<Dwellings> creatureDwellings) {
+	public void setCreatureDwellings(List<String> creatureDwellings) {
 		this.creatureDwellings = creatureDwellings;
 	}
 

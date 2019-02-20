@@ -27,11 +27,11 @@ public class CreatureController {
 	}
 
 	@RequestMapping(value = PATHNAME_CREATURE)
-	public List<Creature> returnCreatureByName(
+	public List<Creature> returnCreature (
 			@RequestParam(value = ATTRIBUTE_NAME, required = false, defaultValue = "") String name,
 			@RequestParam(value = ATTRIBUTE_TOWN, required = false, defaultValue = "") String town,
 			@RequestParam(value = ATTRIBUTE_LEVEL, required = false, defaultValue = "") String level) {
 		
-		return creatureService.findBy(name.replaceAll("_", " "), town.replaceAll("_", ""), level.replaceAll("_", ""));
+		return creatureService.findBy(name.replaceAll("_", " "), town.replaceAll("_", " "), level.replaceAll("_", " "));
 	}
 }

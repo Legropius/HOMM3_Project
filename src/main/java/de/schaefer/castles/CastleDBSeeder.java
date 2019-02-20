@@ -8,10 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 
 public class CastleDBSeeder implements CommandLineRunner{
 	
-	private CastleDao castleDao;
+	private final CastleDao castleDao;
 	
 	@Autowired
-	public CastleDBSeeder(CastleDao castleDao) {
+	public CastleDBSeeder(final CastleDao castleDao) {
 		this.castleDao = castleDao;
 	}
 	

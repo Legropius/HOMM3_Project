@@ -8,17 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class CastleService {
 	
-	private CastleDao castleDao;
+	private final CastleDao castleDao;
 	
 	@Autowired
-	public CastleService(CastleDao castleDao) {
+	public CastleService(final CastleDao castleDao) {
 		this.castleDao = castleDao;
 	}
 	
-	public List<Castle> findByName(String name){
+	public List<Castle> findBy(String name){
 		
-		return castleDao.findByNameIgnoreCase(name)
-				.orElse(castleDao.findByNameIgnoreCaseContaining(name).orElse(null));
+		return null;
 	}
 
 }

@@ -6,14 +6,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import de.schaefer.creatures.Creature;
-
 @Document
 public class Dwellings {
 	
 	@Id
 	@Field
 	private String id;
+	
+	@Field(value = "Level")
+	private String level;
 	
 	@Field(value = "Name")
 	private String name;
@@ -25,11 +26,12 @@ public class Dwellings {
 	private List<String> requirements;
 	
 	@Field(value = "Produces")
-	private Creature produces;
+	private String produces;
 
-	public Dwellings(String name, String cost, List<String> requirements, Creature produces) {
+	public Dwellings(String name, String level, String cost, List<String> requirements, String produces) {
 		super();
 		this.name = name;
+		this.level = level;
 		this.cost = cost;
 		this.requirements = requirements;
 		this.produces = produces;
@@ -50,6 +52,14 @@ public class Dwellings {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
 
 	public String getCost() {
 		return cost;
@@ -67,11 +77,11 @@ public class Dwellings {
 		this.requirements = requirements;
 	}
 
-	public Creature getProduces() {
+	public String getProduces() {
 		return produces;
 	}
 
-	public void setProduces(Creature produces) {
+	public void setProduces(String produces) {
 		this.produces = produces;
 	}
 	

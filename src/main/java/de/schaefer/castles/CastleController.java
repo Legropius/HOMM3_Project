@@ -19,17 +19,17 @@ public class CastleController {
 	
 	private static final String ATTRIBUTE_CASTLENAME = "name";
 	
-	private CastleService castleService;
+	private final CastleService castleService;
 	
 	@Autowired
-	public CastleController(CastleService castleService) {
+	public CastleController(final CastleService castleService) {
 		this.castleService = castleService;
 	}
 	
 	@GetMapping(value = PATHNAME_CASTLE)
 	public List<Castle> returnCastle(@RequestParam(value = ATTRIBUTE_CASTLENAME, defaultValue = "") String name){
 		
-		return castleService.findByName(name);
+		return null;
 	}
 
 }
