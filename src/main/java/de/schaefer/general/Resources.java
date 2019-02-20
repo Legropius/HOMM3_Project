@@ -2,6 +2,22 @@ package de.schaefer.general;
 
 public enum Resources {
 	
-	GOLD, WOOD, ORE, MERCURY, SULFUR, CRYSTAL, GEMS;
+	GOLD ("Gold"), 
+	WOOD ("Wood"), 
+	ORE ("Ore"), 
+	MERCURY ("Mercury"),
+	SULFUR ("Sulfur"), 
+	CRYSTAL ("Crystal"),
+	GEMS ("Gems");
 
+	private final String resource;
+	
+	Resources(String resource){
+		this.resource = resource;
+	}
+
+	public String getResource() {
+		return resource;
+	}
+	
 }

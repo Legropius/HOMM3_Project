@@ -15,6 +15,9 @@ public class Castle {
 	@Field
 	private String id;
 	
+	@Field(value = "Name")
+	private String name;
+	
 	@Field(value = "Information")
 	private String info;
 	
@@ -63,11 +66,11 @@ public class Castle {
 	@Field(value = "Mage Guilds")
 	private List<MageGuild> mageGuilds;
 
-	public Castle(String info, List<String> heroClasses, List<Dwellings> creatureDwellings,
+	public Castle(String name, String info, List<String> heroClasses, List<Dwellings> creatureDwellings,
 			List<String> specificBuildings, String villageHall, String townHall, String cityHall, String capitol,
 			String fort, String citadel, String castle, String tavern, String marketplace, String resourceSilo,
 			String blacksmith, List<MageGuild> mageGuilds) {
-		super();
+		this.name = name;
 		this.info = info;
 		this.heroClasses = heroClasses;
 		this.creatureDwellings = creatureDwellings;
@@ -92,6 +95,14 @@ public class Castle {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getInfo() {

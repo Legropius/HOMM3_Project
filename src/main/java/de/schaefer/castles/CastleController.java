@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static de.schaefer.Homm3ProjectApplication.PATHNAME_APPLICATION;
+import static de.schaefer.castles.CastleController.PATHNAME_APPLICATION;
 
 @RestController
 @RequestMapping(value = PATHNAME_APPLICATION)
 public class CastleController {
 	
+	static final String PATHNAME_APPLICATION = "/homm3";
 	static final String PATHNAME_CASTLE = "/castle";
 	
 	private static final String ATTRIBUTE_CASTLENAME = "name";
