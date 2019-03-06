@@ -27,8 +27,7 @@ public class CastleController {
 	}
 	
 	@GetMapping(value = PATHNAME_CASTLE)
-	public List<Castle> returnCastle(
-			@RequestParam(value = ATTRIBUTE_NAME, required = false, defaultValue = "") String name){
+	public List<Castle> returnCastle(@RequestParam(value = ATTRIBUTE_NAME, required = false, defaultValue = "") String name){
 		
 		return castleService.findBy(name.replaceAll("_", " "));
 	}

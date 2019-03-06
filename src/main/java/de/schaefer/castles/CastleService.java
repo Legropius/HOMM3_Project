@@ -1,6 +1,7 @@
 package de.schaefer.castles;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,9 @@ public class CastleService {
 	
 	public List<Castle> findBy(String name){
 		
-		return null;
+		Optional<List<Castle>> castle = castleDao.findByNameIgnoreCase(name);
+		
+		return castle.isPresent() ? castle.get() : null;
 	}
 
 }
